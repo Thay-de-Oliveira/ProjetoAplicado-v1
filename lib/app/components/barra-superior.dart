@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget Menu(BuildContext context) {
+Widget BarraSuperior(BuildContext context) {
   return Container(
     //BARRA AZUL
     width: double.infinity,

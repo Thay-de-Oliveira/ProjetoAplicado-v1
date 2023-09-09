@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class BottomMenu extends StatelessWidget {
+class MenuInferior extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

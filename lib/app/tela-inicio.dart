@@ -3,86 +3,45 @@ import 'package:flutter/material.dart';
 
 import 'components/barra-superior.dart';
 import 'components/menu-inferior.dart';
+import 'tela-login.dart';
+import 'tela-inicio.dart';
 
-//USANDO UM CÓDIGO PROVISÓRIO PARA RODAR A HOME
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
+class Home extends StatefulWidget {
+  const Home(
+      {super.key,
+      required this.title}); //Construtuor que obriga a fornecer um título
+  final String title; //Armazena o titulo
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Home> createState() => _HomeState(); //Função
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  final _number1 = TextEditingController();
-  final _number2 = TextEditingController();
-  String total = "0";
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void _somar() {
-    double? value1 = double.tryParse(_number1.text) ?? 0.0;
-    double? value2 = double.tryParse(_number2.text) ?? 0.0;
-    setState(() {
-      total = (value1 + value2).toString();
-    });
-  }
-
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Menu(context),
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+      appBar: null, //Permite a visualização da barra superior
+      body: Stack(
+        children: <Widget>[
+          SingleChildScrollView(
+            //Permite descer na tela
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset(
+                    'assets/imagens/Wallpaper.png'), //USANDO UMA IMAGEM PROVISÓRIA PARA RODAR A HOME
+              ],
+            ),
+          ),
+          Positioned(
+            //Adiciona e fixa a BarraSuperior
+            left: 0,
+            top: 0,
+            right: 0, // 0 para ocupar toda a largura da página
+            child: BarraSuperior(context),
+          ),
+        ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextFormField(
-              // style: TextStyle(fontSize: 18, color: Colors.red),
-              controller: _number1,
-              decoration: const InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(width: 1, color: Colors.grey), //<-- SEE HERE
-                ),
-                hintText: "Number 1",
-                icon: Icon(Icons.numbers, color: Colors.grey),
-              ),
-              keyboardType: TextInputType.number,
-            ),
-            TextFormField(
-              // style: TextStyle(fontSize: 18, color: Colors.red),
-              controller: _number2,
-              decoration: const InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: Colors.grey),
-                ),
-                hintText: "Number 2",
-                icon: Icon(Icons.numbers, color: Colors.grey),
-              ),
-              keyboardType: TextInputType.number,
-            ),
-            TextButton(
-              //Botão
-              onPressed: () {
-                _somar();
-              },
-              child: const Text(
-                'Somar',
-                style: TextStyle(color: Colors.black, fontSize: 20.0),
-              ),
-            ),
-            Text("Valor da soma é $total"),
-          ],
-        ),
-      ),
+      bottomNavigationBar: MenuInferior(),
     );
   }
 }

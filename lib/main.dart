@@ -12,6 +12,23 @@ import 'app/tela-login.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      initialRoute: '/', //Rota inicial
+      routes: {
+        '/': (context) => LoginApp(), //Login
+        //'/cadastro': (context) => CadastroApp(),
+        '/tela-inicio': (context) => Home(
+              title: '',
+            ), //Home
+      },
+    );
+  }
+}
+
+/*class MyApp extends StatelessWidget {
   @override //Sobrescreve o método build da classe pai
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,4 +56,4 @@ class MyHomePage extends StatelessWidget {
       child: Text('Conteúdo da Página'),
     );
   }
-}
+}*/
