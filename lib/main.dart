@@ -27,33 +27,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-/*class MyApp extends StatelessWidget {
-  @override //Sobrescreve o método build da classe pai
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Defesa Civil',
-      home: Scaffold(
-        appBar: PreferredSize(
-          //Define a barra superior
-          preferredSize: Size.fromHeight(65), //Altura
-          child: Menu(context), //Cria a barra
-        ),
-        body: MyHomePage(),
-        bottomNavigationBar:
-            BottomMenu(), //Passa o menu inferior através do "BottomMenu()"
-        backgroundColor: Color(0xFFF1F1F1), //Fundo
-      ),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    //Constrói a interface
-    return Center(
-      child: Text('Conteúdo da Página'),
-    );
-  }
-}*/
