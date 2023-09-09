@@ -141,7 +141,7 @@ class _LoginAppState extends State<LoginApp> {
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xff1d3484),
                         minimumSize:
-                            Size(200, 50), // Largura e altura mínimas do botão
+                            Size(100, 40), // Largura e altura mínimas do botão
                         padding: EdgeInsets.all(
                             20.0), // Espaçamento interno do botão
                       ),
