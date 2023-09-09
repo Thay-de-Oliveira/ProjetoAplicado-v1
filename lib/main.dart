@@ -22,7 +22,9 @@ class MyApp extends StatelessWidget {
         //'/cadastro': (context) => CadastroApp(),
         '/tela-inicio': (context) => Home(
               title: '',
-            ), //Home
+            ),
+        //'/mapa': (context) => Mapa(),
+        //'/perfil': (context) => Perfil(),
       },
     );
   }
