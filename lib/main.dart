@@ -4,10 +4,13 @@ import 'app/components/menu-inferior.dart';
 
 import 'app/components/barra-superior.dart';
 
+import 'app/tela-cadastro.dart';
 import 'app/tela-inicio.dart';
 
 import 'app/tela-inicio.dart';
 import 'app/tela-login.dart';
+import 'app/tela-mapa.dart';
+import 'app/tela-usuario.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,12 +22,12 @@ class MyApp extends StatelessWidget {
       initialRoute: '/', //Rota inicial
       routes: {
         '/': (context) => LoginApp(), //Login
-        //'/cadastro': (context) => CadastroApp(),
-        '/tela-inicio': (context) => Home(
+        '/tela-cadastro': (context) => CadastroApp(),
+        '/tela-inicio': (context) => const Home(
               title: '',
             ),
-        //'/mapa': (context) => Mapa(),
-        //'/perfil': (context) => Perfil(),
+        '/tela-mapa': (context) => Mapa(),
+        '/tela-usuario': (context) => Perfil(),
       },
     );
   }

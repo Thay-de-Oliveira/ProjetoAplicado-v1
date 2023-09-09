@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'tela-cadastro.dart';
+import 'tela-usuario.dart';
 
 class LoginApp extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _LoginAppState extends State<LoginApp> {
               //LOGO
               Container(
                 margin: EdgeInsets.only(
-                    bottom: 20.0), // Espaçamento abaixo da imagem
+                    bottom: 30.0), // Espaçamento abaixo da imagem
                 child: Image.asset('assets/imagens/logo.png', width: 230),
               ),
 
@@ -67,7 +68,7 @@ class _LoginAppState extends State<LoginApp> {
                   ),
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 35),
 
               //Texto "SENHA"
               Container(
@@ -141,9 +142,9 @@ class _LoginAppState extends State<LoginApp> {
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xff1d3484),
                         minimumSize:
-                            Size(100, 40), // Largura e altura mínimas do botão
+                            Size(100, 37), // Largura e altura mínimas do botão
                         padding: EdgeInsets.all(
-                            20.0), // Espaçamento interno do botão
+                            17.0), // Espaçamento interno do botão
                       ),
                       child: Text(
                         'Entrar',
@@ -153,20 +154,30 @@ class _LoginAppState extends State<LoginApp> {
 
                     SizedBox(height: 30), // Espaço entre os botões
 
-                    //BOTÃO CADASTRO
-                    /*ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(
-                            context, '/tela-cadastro'); //Acessa cadastro
-                      },
-                      style: ElevatedButton.styleFrom(
-                        primary: Color(0xff1d3484),
-                      ),
-                      child: Text(
-                        'Cadastro',
-                        style: TextStyle(color: Colors.white, fontSize: 15),
-                      ),
-                    ),*/
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          "Não possui uma conta?",
+                          style: TextStyle(
+                            color: Color(0xffffffff),
+                          ),
+                        ),
+                        TextButton(
+                          child: Text(
+                            "Cadastre-se",
+                            style: TextStyle(
+                              color: Color(0xff1d3484),
+                              fontWeight: FontWeight.bold, //Negrito
+                            ),
+                          ),
+                          onPressed: () => {
+                            Navigator.of(context).pushNamed("/tela-cadastro")
+                          },
+                        ),
+                      ],
+                    )
                   ],
                 ),
               )
