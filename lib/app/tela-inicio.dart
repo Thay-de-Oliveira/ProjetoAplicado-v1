@@ -5,38 +5,45 @@ import 'components/barra-superior.dart';
 import 'components/menu-inferior.dart';
 import 'tela-login.dart';
 import 'tela-inicio.dart';
+import 'tela-atendimento-forms.dart';
 
 class Home extends StatefulWidget {
-  const Home(
-      {super.key,
-      required this.title}); //Construtuor que obriga a fornecer um título
-  final String title; //Armazena o titulo
+  const Home({super.key, required this.title});
+  final String title;
   @override
-  State<Home> createState() => _HomeState(); //Função
+  State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: null, //Permite a visualização da barra superior
+      appBar: null,
       body: Stack(
         children: <Widget>[
           SingleChildScrollView(
-            //Permite descer na tela
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset(
-                    'assets/imagens/Wallpaper.png'), //USANDO UMA IMAGEM PROVISÓRIA PARA RODAR A HOME
+                Image.asset('assets/imagens/Wallpaper.png'),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AtendimentoForms(),
+                      ),
+                    );
+                  },
+                  child: Text('Ir para Atendimento Forms'),
+                ),
               ],
             ),
           ),
           Positioned(
-            //Adiciona e fixa a BarraSuperior
             left: 0,
             top: 0,
-            right: 0, // 0 para ocupar toda a largura da página
+            right: 0,
             child: BarraSuperior(context),
           ),
         ],

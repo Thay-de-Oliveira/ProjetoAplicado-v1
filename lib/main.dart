@@ -4,6 +4,7 @@ import 'app/components/menu-inferior.dart';
 
 import 'app/components/barra-superior.dart';
 
+import 'app/tela-atendimento-forms.dart';
 import 'app/tela-cadastro.dart';
 import 'app/tela-inicio.dart';
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
             ),
         '/tela-mapa': (context) => Mapa(),
         '/tela-usuario': (context) => Perfil(),
+        '/tela-atendimento-forms': (context) => AtendimentoForms(),
       },
     );
   }
