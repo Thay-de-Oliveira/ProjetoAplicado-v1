@@ -10,6 +10,8 @@ class AtendimentoForms extends StatefulWidget {
 }
 
 class _AtendimentoFormsState extends State<AtendimentoForms> {
+  //Cria as váriaveis que serão chamadas no campo Checklist
+//Ao adicionar uma string com conteudo, estamos dizendo que esse conteudo deve ser mostrado como a opção primária
   String _selectedNumeroProtocoloAtendimento = 'Selecionar protocolo';
   String _selectedTipoAtendimento = 'Selecionar atendimento';
   String _selectedCanalAtendimento = 'Selecionar canal de atendimento';
@@ -18,6 +20,7 @@ class _AtendimentoFormsState extends State<AtendimentoForms> {
   String _selectedDate = '';
   String _selectedEntregarItens = 'Selecionar';
 
+//Ao adicionar uma condição boolean, dizemos que os campos do checklist iniciam vazios (sem seleção)
   bool isAguaSelected = false;
   bool isCestasSelected = false;
   bool isKitsSelected = false;
@@ -30,6 +33,7 @@ class _AtendimentoFormsState extends State<AtendimentoForms> {
   bool isReservatorioSelected = false;
   bool isFraldaSelected = false;
 
+//Ao criar "List<String>", estamos passando as opções que devem ser mostradas ao clicar no campo correspondente
   List<String> numberOptions = [
     'Selecionar protocolo',
     '001',
@@ -83,14 +87,14 @@ class _AtendimentoFormsState extends State<AtendimentoForms> {
     return Scaffold(
       appBar: null,
       body: CustomScrollView(
+        //Permite rolagem da página
         slivers: <Widget>[
           SliverAppBar(
             floating: true, // A barra irá flutuar no topo
             pinned: true, // A barra será fixa no topo
             snap: false, // Não encolherá a barra ao rolar para baixo
             expandedHeight: 50, // Altura expandida da barra superior
-            flexibleSpace:
-                BarraSuperior(context), // Seu componente da barra superior aqui
+            flexibleSpace: BarraSuperior(context), //Barra
           ),
           SliverList(
             delegate: SliverChildListDelegate(
@@ -142,6 +146,7 @@ class _AtendimentoFormsState extends State<AtendimentoForms> {
 
                         SizedBox(height: 30),
 
+                        //Campo "Canal da solicitação"
                         DropdownButtonFormField<String>(
                           value: _selectedCanalAtendimento,
                           items: canalAtendimentoOptions.map((String option) {
@@ -161,6 +166,7 @@ class _AtendimentoFormsState extends State<AtendimentoForms> {
 
                         SizedBox(height: 30),
 
+                        //Campo "Nome do responsável no local"
                         TextFormField(
                           decoration: _customInputDecoration(
                               'Nome do responsável no local:'),
@@ -168,6 +174,7 @@ class _AtendimentoFormsState extends State<AtendimentoForms> {
 
                         SizedBox(height: 30),
 
+                        //Campos lado a lado "Vistoria"
                         Row(
                           children: [
                             Expanded(
@@ -213,6 +220,7 @@ class _AtendimentoFormsState extends State<AtendimentoForms> {
 
                         SizedBox(height: 30),
 
+                        //Campos lado a lado "Datas"
                         Row(
                           children: [
                             Expanded(
@@ -233,6 +241,7 @@ class _AtendimentoFormsState extends State<AtendimentoForms> {
 
                         SizedBox(height: 20),
 
+                        //Campo com icones "Registro da vistoria"
                         TextFormField(
                           decoration: InputDecoration(
                             labelText: 'Registro da vistoria',
@@ -255,6 +264,7 @@ class _AtendimentoFormsState extends State<AtendimentoForms> {
                             suffixIcon: Padding(
                               padding: EdgeInsets.only(right: 16.0),
                               child: Row(
+                                //Ícones
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Container(
@@ -276,6 +286,7 @@ class _AtendimentoFormsState extends State<AtendimentoForms> {
 
                         SizedBox(height: 30),
 
+                        //Campo "Será entregue itens de assistencia humanitaria"
                         DropdownButtonFormField<String>(
                           value: _selectedEntregarItens,
                           items: entragarItensOptions.map((String option) {
@@ -295,6 +306,7 @@ class _AtendimentoFormsState extends State<AtendimentoForms> {
 
                         SizedBox(height: 30),
 
+                        //Campo CHECKLIST "Qyaus itens foram entregues?"
                         Container(
                           decoration: BoxDecoration(
                             border: Border.all(
@@ -433,6 +445,7 @@ class _AtendimentoFormsState extends State<AtendimentoForms> {
 
                         SizedBox(height: 30),
 
+                        //Campo de texto longo "Observações"
                         TextField(
                           decoration: _customInputDecoration('Observações'),
                           maxLines: null, // Permite múltiplas linhas
